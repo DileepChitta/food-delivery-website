@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Order Confirmation</title>
+</head>
+<body>
+  <h1>Thank you for your order, <%= user.name %>! 🍔</h1>
+  <h2>Order ID: <%= order._id %></h2>
+  <h3>Status: <%= order.orderStatus %></h3>
+  <ul>
+    <% order.items.forEach(item => { %>
+      <li><%= item.name %> x <%= item.quantity %> = ₹<%= item.price * item.quantity %></li>
+    <% }) %>
+  </ul>
+  <h3>Total: ₹<%= order.totalAmount %></h3>
+  <p>Delivery Address: <%= order.deliveryAddress.street %>, <%= order.deliveryAddress.city %></p>
+</body>
+</html>
